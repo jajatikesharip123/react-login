@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 .App-logo {
@@ -20,13 +24,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
