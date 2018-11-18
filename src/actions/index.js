@@ -1,13 +1,18 @@
-// import * as ReadableAPI from '../utils/api';
+import * as ReadableAPI from '../helpers/api';
 import * as Type from './types';
 
-// CATEGORIES
-export const login = (categories) => ({
-  type: Type.LOGIN,
-  categories
+// LOGIN
+export const register = (user) => ({
+  type: Type.REGISTER,
+  user
 })
-// export const fetchCategories = () => dispatch => (
-//   ReadableAPI
-//     .getCategories()
-//     .then(categories => dispatch(setCategories(categories)))
-// )
+export const fetchRegister = (user) => dispatch => (
+  ReadableAPI
+    .registerUser(user)
+    .then(result => {
+      console.log('RES', result);
+      if (result.ok) {
+        dispatch(register(user));
+      }
+    })
+)

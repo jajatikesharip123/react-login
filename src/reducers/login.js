@@ -1,13 +1,15 @@
 import * as Type from '../actions/types';
 
-const defaultComments = {};
+const defaultState = {
+  register: {},
+};
 
-export const login = (state = defaultComments, action) => {
+export const login = (state = defaultState, action) => {
   switch (action.type) {
-    case Type.LOGIN :
+    case Type.REGISTER :
       return {
         ...state,
-        login: [...action.login]
+        register: action.user,
       }
     default :
       return state;
