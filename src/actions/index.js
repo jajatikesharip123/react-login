@@ -16,3 +16,23 @@ export const fetchRegister = (user) => dispatch => (
       }
     })
 )
+export const login = (user) => ({
+  type: Type.LOGIN,
+  user
+})
+export const loginErr = (message) => ({
+  type: Type.ERROR,
+  message
+})
+export const fetchLogin = (username, password) => dispatch => (
+  ReadableAPI
+    .loginUser(username, password)
+    .then(result => {
+      console.log('RES', result);
+      if (result && result.token) {
+        dispatch(login(username));
+      } else {
+        dispatch(loginErr('Username or password is incorrect'));
+      }
+    })
+)
